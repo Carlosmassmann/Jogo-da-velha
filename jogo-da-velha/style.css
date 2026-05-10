@@ -1,0 +1,137 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: #1a1a2e;
+  font-family: 'Segoe UI', sans-serif;
+  color: #eee;
+}
+
+.container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 24px;
+}
+
+h1 {
+  font-size: 2.4rem;
+  letter-spacing: 2px;
+  color: #e0e0e0;
+}
+
+/* Score board */
+.score-board {
+  display: flex;
+  gap: 32px;
+}
+
+.score {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 4px;
+  background: #16213e;
+  padding: 12px 24px;
+  border-radius: 10px;
+  min-width: 80px;
+}
+
+.player-label {
+  font-size: 1rem;
+  font-weight: 700;
+  letter-spacing: 1px;
+}
+
+.player-label.x  { color: #e94560; }
+.player-label.o  { color: #0f8ac8; }
+.player-label.draw { color: #aaa; font-size: 0.8rem; }
+
+.score-value {
+  font-size: 1.8rem;
+  font-weight: 700;
+  color: #fff;
+}
+
+/* Status */
+.status {
+  font-size: 1.1rem;
+  height: 28px;
+  color: #ccc;
+  letter-spacing: 0.5px;
+  transition: color 0.2s;
+}
+
+.status.winner-x { color: #e94560; font-weight: 700; }
+.status.winner-o { color: #0f8ac8; font-weight: 700; }
+.status.draw     { color: #f0a500; font-weight: 700; }
+
+/* Board */
+.board {
+  display: grid;
+  grid-template-columns: repeat(3, 110px);
+  grid-template-rows: repeat(3, 110px);
+  gap: 8px;
+}
+
+.cell {
+  background: #16213e;
+  border: 2px solid #0f3460;
+  border-radius: 12px;
+  font-size: 3rem;
+  font-weight: 900;
+  color: #fff;
+  cursor: pointer;
+  transition: background 0.15s, transform 0.1s;
+  outline: none;
+}
+
+.cell:hover:not(:disabled) {
+  background: #0f3460;
+  transform: scale(1.04);
+}
+
+.cell:disabled {
+  cursor: default;
+}
+
+.cell.x { color: #e94560; }
+.cell.o { color: #0f8ac8; }
+
+.cell.winning {
+  background: #0f3460;
+  border-color: #f0a500;
+  animation: pulse 0.5s ease-in-out;
+}
+
+@keyframes pulse {
+  0%   { transform: scale(1); }
+  50%  { transform: scale(1.1); }
+  100% { transform: scale(1); }
+}
+
+/* Restart button */
+.btn-restart {
+  padding: 12px 36px;
+  background: #0f3460;
+  color: #fff;
+  border: none;
+  border-radius: 8px;
+  font-size: 1rem;
+  font-weight: 600;
+  cursor: pointer;
+  letter-spacing: 1px;
+  transition: background 0.2s, transform 0.1s;
+}
+
+.btn-restart:hover {
+  background: #e94560;
+  transform: scale(1.04);
+}
